@@ -17,7 +17,7 @@ namespace Interval
 
         explicit intervalMap(Value const& defVal) : m_defaultVal(defVal) { }
         const Value& operator[](const Key& key) const;
-        bool assert(const Key& begin, const Key& end, const Value& value);
+        bool assign(const Key& begin, const Key& end, const Value& value);
 
     };
 
@@ -32,7 +32,7 @@ namespace Interval
     }
 
     template<typename Key, typename Value>
-    bool intervalMap<Key,Value>::assert(const Key& begin, const Key& end, const Value& value)
+    bool intervalMap<Key,Value>::assign(const Key& begin, const Key& end, const Value& value)
     {
         if (begin > end) return false;
 
